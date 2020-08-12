@@ -1,0 +1,32 @@
+Danger Log:
+
+1. We finish the back-end part. However, some port number assigned for connecting
+World and UPS may not work.(for example: 4 digits number, which cannot bind to socket).
+
+2. We did not make the throw-exception parts cover our entire code, which means if
+an error comes out in uncover part, it may cause the process crash or throw directly
+to user.
+
+3. We did not finish a "guarantee receive" version. For example, our code won't "keep 
+sending message to world socket until we receive the reply." That may cause some 
+packetdrop problems if flakiness is high.
+
+4. In our design, we use the main function to connect to database, create/connect sockets, 
+then we create 2 threads for UPS/World connection and front-end connection. In each 
+thread, we create threads for specific functions and detach them. Sometimes it is hard
+to monitor the conditions of each thread, it is also not very stable.
+
+5. We finish the front-end part. However, a small part of port number may not work
+for it. (very small number)
+
+6. Our backend part ia able to connect to world socket, frontend and then UPS. If a customer 
+click his order from front end, His order will be placed in our queue, later pop out and wait for 
+processing. However, if he signup with the same username, there will be no warning for it 
+and just reject it.  
+
+7. If someone signup with a too short password, there will be no warning and just reject it.
+
+
+
+
+

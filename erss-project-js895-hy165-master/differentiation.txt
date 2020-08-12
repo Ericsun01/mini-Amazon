@@ -1,0 +1,16 @@
+Differentiation
+
+Front-end:
+1. We have login and register system, which is not in requirements for amazon.
+2. Our amazon can also logout, after which some of the pages cannot be accessed.
+3. We made use of some css and javascript.
+4. Our searchable list of products can filter by many ways, including by name,
+department(species, e.g. food, household, etc), and max and min price. For name,
+it supports fuzzy query. You can only type in part of the name to get all that matches.
+5. Users can view the list of their orders
+
+
+Back-end:
+1. In our IG protocol, we have a message called package_arrived, which is used
+   by UPS to inform amazon that the package has been delivered. This is not 
+   mentioned as the basic flow, which can be considered as Differentiation.

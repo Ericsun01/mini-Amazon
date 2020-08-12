@@ -1,0 +1,56 @@
+syntax = "proto2";
+message UAWorldBuilt {
+	required int32 worldid = 1;
+	required int64 seqnum = 2;
+}
+
+message AUOrder {
+	required string description = 1;
+	required int32 locationx = 2;
+	required int32 locationy = 3;
+	required string username = 4; 
+}
+
+message AUReqTruck {
+	required int32 warehouseid = 1;
+	required int32 shipid = 2;
+	required AUOrder orders = 3;
+	required int64 seqnum = 4;
+}
+
+message UATruckArrived {             
+	required int32 truckid = 1;
+	required int32 shipid = 2;
+	required int64 seqnum = 3;	
+}
+
+message AUTruckLoaded {
+	required int32 truckid = 1;
+	required int32 shipid = 2;
+	required int64 seqnum = 3;
+}
+
+message UAPackageArrived {
+	required int64 shipid = 1;
+	required int64 seqnum = 2;
+}
+
+message UAErr {
+	required string err = 1;
+  	required int64 originseqnum = 2;
+  	required int64 seqnum = 3;
+}
+
+message AUCommands {
+  	repeated AUReqTruck requests = 1;
+  	repeated AUTruckLoaded truckloaded = 2; 
+  	repeated UAErr uaerror = 3;
+  	repeated int64 acks = 4;
+}
+
+message UACommands {
+  	repeated UATruckArrived truckarrived = 1;
+  	repeated UAPackageArrived packagearrived = 2;
+  	repeated UAErr uaerror = 3;
+  	repeated int64 acks = 4;
+}
